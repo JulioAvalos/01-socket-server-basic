@@ -17,6 +17,16 @@
             console.log(data);
         });
 
+        setTimeout(() => {
+
+            //emitir evento
+            //mensaje-cliente 
+            // { msg: 'cliente', nombre: 'Julio' }
+
+            socket.emit('mensaje-cliente', { msg: 'cliente', nombre : 'Julio'});
+
+        }, 2000);
+
     </script>
 </body>
 </html>

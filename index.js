@@ -13,10 +13,23 @@ app.use(express.static(__dirname + '/public'));
 
 io.on("connection", (socket) => {
     // console.log(socket.id);
+
     socket.emit('mensaje-bienvenida', {
         msg: 'Bienvenido al server',
         fecha: new Date()
     });
+
+
+    socket.on('mensaje-cliente', (data) => {
+
+    // Escuchar el evento
+    // mensaje-cliente 
+    // console.log(data)
+        console.log(data);
+    })
+
+
+
 });
 
 server.listen(8080, () => {
