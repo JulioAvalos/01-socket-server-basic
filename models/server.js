@@ -4,6 +4,8 @@ const http = require("http");
 const socketio = require("socket.io");
 const path = require("path");
 
+const Sockets = require("./sockets");
+
 class Server {
   constructor() {
     this.app = express();
@@ -20,11 +22,11 @@ class Server {
 
   middlewares() {
     // Desplegar el directorio publico
-    this.app.use(express.static(path.resolve(__dirname + "../public")));
+    this.app.use(express.static(path.resolve(__dirname, "../public")));
   }
 
   configurarSockets () {
-    // todo: pendiente de implementar
+    new Sockets(this.io);
   }
 
   execute() {
